@@ -15,6 +15,6 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
         }
         arr.push(obj);
       }
-      // console.log(arr)
+      return arr
     });
 }
