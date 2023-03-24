@@ -24,9 +24,9 @@ const class2020 = new HolbertonClass(2020, 'San Francisco');
 // const student4 = new StudentHolberton('Donald', 'Bush', class2019);
 // const student5 = new StudentHolberton('Jason', 'Sandler', class2019);
 
-export class StudentHolberton extends HolbertonClass {
+export class StudentHolberton {
   constructor(firstName, lastName, holbertonClass) {
-    super(holbertonClass.year, holbertonClass.location);
+    //super()
     this._firstName = firstName;
     this._lastName = lastName;
     this._holbertonClass = holbertonClass;
