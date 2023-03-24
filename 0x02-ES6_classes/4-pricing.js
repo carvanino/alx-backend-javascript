@@ -20,7 +20,7 @@ export default class Pricing {
 
   set currency(currency) {
     // if (!(value instanceof Currency)) {
-    // throw new TypeError('currency must be a Currency object');
+    // throw new TypeEror('currency must be a Currency object');
     // }
     this._currency = currency;
   }
@@ -29,7 +29,7 @@ export default class Pricing {
     return `${this._amount} ${this._currency._name} (${this._currency._code})`;
   }
 
-  static covertPrice(amount, coversionRate) {
-    return amount * coversionRate;
+  static covertPrice(amount, conversionRate) {
+    return amount * conversionRate;
   }
 }
