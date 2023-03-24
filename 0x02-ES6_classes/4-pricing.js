@@ -30,6 +30,6 @@ export default class Pricing {
   }
 
   static covertPrice(amount, coversionRate) {
-    return this._amount * coversionRate;
+    return amount * coversionRate;
   }
 }
