@@ -3,7 +3,7 @@ const http = require('http');
 // const countStudents = require('./2-read_file');
 
 const { argv } = process;
-console.log(argv[2]);
+// console.log(argv[2]);
 
 async function* countStudents(path) {
   try {
