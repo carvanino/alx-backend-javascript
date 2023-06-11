@@ -5,7 +5,8 @@ const http = require('http');
 const { argv } = process;
 // console.log(argv[2]);
 
-async function* countStudents(path) {
+async function countStudents(path) {
+  const result = [];
   try {
     const data = await fsPromises.readFile(path, 'utf-8');
     const lines = data.split('\n');
@@ -28,17 +29,18 @@ async function* countStudents(path) {
       }
     }
     // console.log(`Number of students: ${totalStudent}`);
-    yield (`Number of students: ${totalStudent}`);
+    result.push(`Number of students: ${totalStudent}`);
     for (const [field, value] of Object.entries(fields)) {
       const list = value.firstName.join(', ');
       // console.log(`Number of students in ${field}: ${fields[field].count}. List: ${list}`);
-      yield (`Number of students in ${field}: ${fields[field].count}. List: ${list}`);
+      result.push(`Number of students in ${field}: ${fields[field].count}. List: ${list}`);
     }
     // console.log(fields)
   } catch (err) {
     // console.error(err);
     throw new Error('Cannot load the database');
   }
+  return (result.join('\n'));
 }
 
 const hostname = 'localhost';
@@ -55,10 +57,11 @@ const app = http.createServer(async (req, res) => {
       res.statusCode = 200;
       res.write('This is the list of our students\n');
       try {
-        const studentInfo = countStudents(argv[2]);
-        for await (const item of studentInfo) {
-          res.write(`${item}\n`);
-        }
+        const studentInfo = await countStudents(argv[2]);
+        res.write(studentInfo);
+        // for await (const item of studentInfo) {
+        //   res.write(`${item}\n`);
+        // }
         res.end();
       } catch (error) {
         console.error(error);
