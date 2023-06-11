@@ -1,8 +1,10 @@
 const fsPromises = require('fs').promises;
 const http = require('http');
-// const countStudents = require('./2-read_file');
 
 const { argv } = process;
+if (argv.length < 2) {
+  argv[2] = '';
+}
 // console.log(argv[2]);
 
 async function countStudents(path) {
@@ -38,7 +40,7 @@ async function countStudents(path) {
     // console.log(fields)
   } catch (err) {
     // console.error(err);
-    throw new Error('Cannot load the database');
+    return new Error('Cannot load the database').message;
   }
   return (result.join('\n'));
 }
