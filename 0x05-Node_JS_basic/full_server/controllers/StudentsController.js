@@ -26,15 +26,21 @@ export default class StudentController {
       response.send('Major parameter must be CS or SWE');
     } else {
       const data = await readDatabase(path);
-      const d = data.split('\n');
-      const studentsWithMajor = d.filter((entry) => entry.includes(major));
-      // console.log(studentsWithMajor);
-      const stripa = studentsWithMajor[0].split(':');
-      // console.log(stripa);
-      const students = stripa.slice(-1);
-      // console.log(d);
-      response.status(200);
-      response.send(`List:${students}`);
+      if ((data instanceof Error)) {
+        response.status(500);
+        response.send(data.message);
+        // console.log(data.message);
+      } else {
+        const d = data.split('\n');
+        const studentsWithMajor = d.filter((entry) => entry.includes(major));
+        // console.log(studentsWithMajor);
+        const stripa = studentsWithMajor[0].split(':');
+        // console.log(stripa);
+        const students = stripa.slice(-1);
+        // console.log(d);
+        response.status(200);
+        response.send(`List:${students}`);
+      }
     }
   }
 }

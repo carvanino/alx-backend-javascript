@@ -38,7 +38,7 @@ async function readDatabase(path) {
     return (result.join('\n'));
     // console.log(fields)
   } catch (err) {
-    return new Error('Cannot load the database').message;
+    return new Error('Cannot load the database');
   }
 }
 
