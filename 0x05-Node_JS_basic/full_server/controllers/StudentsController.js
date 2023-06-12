@@ -7,6 +7,7 @@ if (argv.length < 2) {
 }
 
 const path = argv[2];
+// console.log(path)
 
 export default class StudentController {
   static async getAllStudents(request, response) {
@@ -32,6 +33,7 @@ export default class StudentController {
       // console.log(stripa);
       const students = stripa.slice(-1);
       // console.log(d);
+      response.status(200);
       response.send(`List:${students}`);
     }
   }
