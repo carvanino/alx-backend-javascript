@@ -1,7 +1,7 @@
 import readDatabase from '../utils';
 
 const { argv } = process;
-argv[2] = 'database.csv';
+// argv[2] = 'database.csv';
 if (argv.length < 2) {
   argv[2] = '';
 }
