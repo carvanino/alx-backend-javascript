@@ -14,8 +14,8 @@ export default class StudentController {
     // console.log(path);
     const data = await readDatabase(path);
     if (data instanceof Error) {
-      response.send(data.message);
       response.status(500);
+      response.send(data.message);
     } else {
       response.status(200);
       response.send(data);
