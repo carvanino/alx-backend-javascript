@@ -64,3 +64,4 @@ app.get('/students', async (req, res) => {
 app.listen(port, hostname, () => {
   console.log(`App running on http://${hostname}:${port}`);
 });
+module.exports = app;
