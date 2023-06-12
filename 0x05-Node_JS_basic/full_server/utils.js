@@ -1,14 +1,14 @@
-const fsPromises = require('fs').promises;
-const express = require('express');
+import { promises as fsPromises } from 'fs';
+
+import express from 'express';
 
 const app = express();
 const { argv } = process;
 if (argv.length < 2) {
   argv[2] = '';
 }
-
-async function countStudents(path) {
-  const result = [];
+async function readDatabase(path) {
+  const result = []
   try {
     const data = await fsPromises.readFile(path, 'utf-8');
     const lines = data.split('\n');
@@ -37,30 +37,11 @@ async function countStudents(path) {
       // console.log(`Number of students in ${field}: ${fields[field].count}. List: ${list}`);
       result.push(`Number of students in ${field}: ${fields[field].count}. List: ${list}`);
     }
+    return (result.join('\n'));
     // console.log(fields)
   } catch (err) {
-    // console.error(err);
     return new Error('Cannot load the database').message;
   }
-  return (result.join('\n'));
 }
 
-const hostname = 'localhost';
-const port = 1245;
-
-app.get('/', (req, res) => {
-  res.send('Hello Holberton School!');
-});
-app.get('/students', async (req, res) => {
-  // res.send('This is the list of our students\n');
-  try {
-    const studentInfo = await countStudents(argv[2]);
-    res.send(`This is the list of our students\n${studentInfo}`);
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-app.listen(port, hostname, () => {
-  console.log(`App running on http://${hostname}:${port}`);
-});
+export default readDatabase;
