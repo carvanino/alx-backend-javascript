@@ -2,19 +2,24 @@ import readDatabase from '../utils';
 
 const { argv } = process;
 // argv[2] = 'database.csv';
-if (argv.length < 2) {
-  argv[2] = '';
-}
+// if (argv.length < 2) {
+//   argv[2] = '';
+// }
 
 const path = argv[2];
 // console.log(path)
 
 export default class StudentController {
   static async getAllStudents(request, response) {
-    response.status(200);
     // console.log(path);
     const data = await readDatabase(path);
-    response.send(data);
+    if (data instanceof Error) {
+      response.send(data.message);
+      response.status(500);
+    } else {
+      response.status(200);
+      response.send(data);
+    }
     // console.log(data);
   }
 
