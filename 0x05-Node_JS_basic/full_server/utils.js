@@ -1,14 +1,12 @@
 import { promises as fsPromises } from 'fs';
 
-import express from 'express';
-
-const app = express();
+// const app = express();
 const { argv } = process;
 if (argv.length < 2) {
   argv[2] = '';
 }
 async function readDatabase(path) {
-  const result = []
+  const result = [];
   try {
     const data = await fsPromises.readFile(path, 'utf-8');
     const lines = data.split('\n');
