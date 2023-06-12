@@ -1,10 +1,10 @@
 import { promises as fsPromises } from 'fs';
 
 // const app = express();
-const { argv } = process;
-if (argv.length < 2) {
-  argv[2] = '';
-}
+// const { argv } = process;
+// if (argv.length < 2) {
+//   argv[2] = '';
+// }
 async function readDatabase(path) {
   const result = [];
   try {

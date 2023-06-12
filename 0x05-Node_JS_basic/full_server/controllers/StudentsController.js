@@ -1,9 +1,11 @@
 import readDatabase from '../utils';
 
-let path = 'database.csv';
-if (process.argv.length < 2) {
-  path = '';
+const { argv } = process;
+if (argv.length < 2) {
+  argv[2] = '';
 }
+
+const path = argv[2];
 
 export default class StudentController {
   static async getAllStudents(request, response) {
