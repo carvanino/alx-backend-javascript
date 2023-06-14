@@ -2,7 +2,7 @@ const assert = require('assert');
 const calculateNumber = require('./1-calcul');
 
 describe('calculateNumber', () => {
-  describe('sUM', () => {
+  describe('SUM', () => {
     it('should SUM two numbers', () => {
       assert.equal(calculateNumber('SUM', 5.3, 4.5), 10);
       assert.equal(calculateNumber('SUM', 5.0, 4.5), 10);
@@ -19,7 +19,7 @@ describe('calculateNumber', () => {
       assert.ok(isNaN(calculateNumber()));
     });
   });
-  describe('sUBTACT', () => {
+  describe('SUBTACT', () => {
     it('should SUBTRACT two numbers', () => {
       assert.equal(calculateNumber('SUBTRACT', 5.3, 4.5), 0);
       assert.equal(calculateNumber('SUBTRACT', 5.0, -4.5), 9);
@@ -33,7 +33,7 @@ describe('calculateNumber', () => {
       assert.ok(isNaN(calculateNumber('SUBTRACT')));
     });
   });
-  describe('dIVIDE', () => {
+  describe('DIVIDE', () => {
     it('should DIVIDE two numbers', () => {
       assert.equal(calculateNumber('DIVIDE', 15.3, 4.5), 3);
       assert.equal(calculateNumber('DIVIDE', 15.0, -4.5), -3.75);
