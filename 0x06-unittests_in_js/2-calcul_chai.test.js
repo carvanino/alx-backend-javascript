@@ -13,11 +13,11 @@ describe('calculateNumber', () => {
     });
 
     it('should return NaN', () => {
-      expect(isNaN(calculateNumber('SUM', 'a', 'b'))).to.equal(true);
-      expect(isNaN(calculateNumber('SUM', [2, 4, 5], 5))).to.equal(true);
-      expect(isNaN(calculateNumber('SUM'))).to.equal(true);
-      expect(isNaN(calculateNumber('SUM', 2.5))).to.equal(true);
-      expect(isNaN(calculateNumber())).to.equal(true);
+      expect(isNaN(calculateNumber('SUM', 'a', 'b'))).to.be.true;
+      expect(isNaN(calculateNumber('SUM', [2, 4, 5], 5))).to.be.true;
+      expect(isNaN(calculateNumber('SUM'))).to.be.true;
+      expect(isNaN(calculateNumber('SUM', 2.5))).to.be.true;
+      expect(isNaN(calculateNumber())).to.be.true;
     });
   });
   describe('SUBTACT', () => {
@@ -29,9 +29,9 @@ describe('calculateNumber', () => {
       expect(calculateNumber('SUBTRACT', 5.0, -4.6)).to.equal(10);
     });
     it('should return NaN', () => {
-      expect(isNaN(calculateNumber('SUBTRACT', 'a', 'b'))).to.equal(true);
-      expect(isNaN(calculateNumber('SUBTRACT', [2, 4, 5], 5))).to.equal(true);
-      expect(isNaN(calculateNumber('SUBTRACT'))).to.equal(true);
+      expect(isNaN(calculateNumber('SUBTRACT', 'a', 'b'))).to.be.true;
+      expect(isNaN(calculateNumber('SUBTRACT', [2, 4, 5], 5))).to.be.true;
+      expect(isNaN(calculateNumber('SUBTRACT'))).to.be.true;
     });
   });
   describe('DIVIDE', () => {
@@ -44,9 +44,9 @@ describe('calculateNumber', () => {
       expect(calculateNumber('DIVIDE', 0.4, 12.0)).to.equal(0);
     });
     it('should return NaN', () => {
-      expect(isNaN(calculateNumber('DIVIDE'))).to.equal(true);
-      expect(isNaN(calculateNumber('DIVIDE', 'a', 'b', NaN))).to.equal(true);
-      expect(isNaN(calculateNumber('DIVIDE', [2, 4, 5], 5))).to.equal(true);
+      expect(isNaN(calculateNumber('DIVIDE'))).to.be.true;
+      expect(isNaN(calculateNumber('DIVIDE', 'a', 'b', NaN))).to.be.true;
+      expect(isNaN(calculateNumber('DIVIDE', [2, 4, 5], 5))).to.be.true;
     });
   });
 });
