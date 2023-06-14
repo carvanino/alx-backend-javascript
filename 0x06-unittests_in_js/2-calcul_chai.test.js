@@ -7,7 +7,7 @@ describe('calculateNumber', () => {
     it('should SUM two numbers', () => {
       expect(calculateNumber('SUM', 5.3, 4.5)).to.equal(10);
       expect(calculateNumber('SUM', 5.0, 4.5)).to.equal(10);
-      expect(calculateNumber('SUM', -5.5, 4.5)).to.equal(0);
+      expect(calculateNumber('SUM', -5.5, -4.5)).to.equal(-9);
       expect(calculateNumber('SUM', 5.0, -4.5)).to.equal(1);
       expect(calculateNumber('SUM', 5.0, -4.6)).to.equal(0);
     });
@@ -26,7 +26,7 @@ describe('SUBTACT', () => {
   it('should SUBTRACT two numbers', () => {
     expect(calculateNumber('SUBTRACT', 5.3, 4.5)).to.equal(0);
     expect(calculateNumber('SUBTRACT', 5.0, -4.5)).to.equal(9);
-    expect(calculateNumber('SUBTRACT', -5.5, 4.5)).to.equal(-10);
+    expect(calculateNumber('SUBTRACT', -5.5, -4.5)).to.equal(-1);
     expect(calculateNumber('SUBTRACT', 5.0, -4.5)).to.equal(9);
     expect(calculateNumber('SUBTRACT', 5.0, -4.6)).to.equal(10);
   });
