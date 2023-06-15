@@ -1,4 +1,5 @@
-const { assert } = require('chai');
+// const { assert } = require('chai');
+const assert = require('assert');
 const sinon = require('sinon');
 const getPaymentTokenFromAPI = require('./6-payment_token');
 
