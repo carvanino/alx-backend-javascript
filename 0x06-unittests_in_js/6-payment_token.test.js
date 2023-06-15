@@ -5,7 +5,7 @@ const getPaymentTokenFromAPI = require('./6-payment_token');
 
 describe('getPaymentTokenFromApi', () => {
   context('On success', () => {
-    it('returns the response from the API', () => new Promise((done) => {
+    it('returns the response from the API', (done) => {
       const stub = sinon.stub();
       const expectedRes = {
         data: 'Successful response from the API',
@@ -17,6 +17,6 @@ describe('getPaymentTokenFromApi', () => {
         assert.deepEqual(response, expectedRes);
       })
         .then(() => done(), done);
-    }));
+    });
   });
 });
