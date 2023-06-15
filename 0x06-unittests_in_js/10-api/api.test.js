@@ -45,13 +45,14 @@ describe('Test for /available_payments endpoint', (req, res) => {
 });
 
 describe('Test for the /login endpoint', (req, res) => {
-  it('should check for the correct response and status code', () => {
+  it('should check for the correct response and status code', (done) => {
     const data = {
       userName: "Betty",
     }
-    return request.post('http://localhost:7865/login', {json: data}, (error, response, body) => {
+    request.post('http://localhost:7865/login', {json: data}, (error, response, body) => {
       assert.equal(body, 'Welcome Betty');
       assert.equal(response.statusCode, 200);
-    })
+      done();
+    });
   });
 });
