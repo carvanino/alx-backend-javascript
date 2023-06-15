@@ -24,6 +24,6 @@ describe('Test for the cart route', () => {
     request.get('http://localhost:7865/cart/Not_a_number', (error, respnse) => {
       assert.equal(respnse.statusCode, 404);
       done();
-    })
-  })
+    });
+  });
 });
