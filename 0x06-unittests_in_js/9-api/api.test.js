@@ -19,11 +19,12 @@ describe('Test for the cart route', () => {
       done();
     });
   });
-
+});
+describe ('Test for the cart route without a number', () => {
   it('should check for the correct status code for the /cart/:NaN', (done) => {
     request.get('http://localhost:7865/cart/Not_a_number', (error, respnse) => {
       assert.equal(respnse.statusCode, 404);
-      done()
-    })
-  })
+      done();
+    });
+  });
 });
